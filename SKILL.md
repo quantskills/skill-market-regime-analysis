@@ -20,6 +20,49 @@ quantSkills:
   summary_en: Chinese A-share market regime analysis toolkit — classify market states (bull/bear/sideways/high-vol/low-vol) using HMMs or threshold rules on index data, macro indicators, and futures term structure; evaluate conditional factor performance; generate regime-aware risk forecasts; and build regime-switching strategies.
 ---
 
+```json qsh-form
+{
+  "version": 1,
+  "task": {
+    "placeholder": "补充分析区间、宏观变量、因子条件分析或风险预测目标（可选）"
+  },
+  "fields": [
+    {
+      "key": "index",
+      "label": "分析指数",
+      "type": "select",
+      "default": "000300.SH",
+      "options": [
+        { "value": "000300.SH", "label": "沪深300" },
+        { "value": "000905.SH", "label": "中证500" },
+        { "value": "000016.SH", "label": "上证50" },
+        { "value": "000688.SH", "label": "科创50" },
+        { "value": "399006.SZ", "label": "创业板指" },
+        { "value": "000001.SH", "label": "上证指数" }
+      ]
+    },
+    {
+      "key": "method",
+      "label": "状态识别方法",
+      "type": "select",
+      "default": "threshold",
+      "options": [
+        { "value": "threshold", "label": "阈值规则" },
+        { "value": "hmm", "label": "隐马尔可夫模型" },
+        { "value": "rolling", "label": "滚动状态分类" }
+      ]
+    },
+    {
+      "key": "focus",
+      "label": "关注点",
+      "type": "text",
+      "placeholder": "例如：因子条件表现、VaR/CVaR、状态切换策略"
+    }
+  ],
+  "prompt_template": "{{#task}}任务与材料：\n{{task}}\n\n{{/task}}{{#attachments}}用户上传的材料（已放入工作区）：\n{{attachments}}\n\n{{/attachments}}以 {{index}} 为核心，使用 {{method}} 方法结合指数趋势与波动、宏观指标、股指期货期限结构和市场横截面特征识别 A 股牛熊、震荡及高低波状态，严格避免前视，{{#focus}}重点分析：{{focus}}；{{/focus}}给出状态证据、切换判断、条件因子表现与状态感知风险结论，输出中文报告。"
+}
+```
+
 # Market Regime Analysis
 
 Analyze and classify Chinese A-share market regimes using multi-source data, then use regime information to improve factor timing, risk forecasting, and strategy design.
