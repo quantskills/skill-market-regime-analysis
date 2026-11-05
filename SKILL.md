@@ -7,7 +7,7 @@ quantSkills:
   repository_url: https://github.com/quantskills/skill-market-regime-analysis
   project_type: skill
   collection: market-research
-  license: GPL-3.0
+  license: GPL-3.0-only
   category: tooling
   tags: [market-regime, regime-detection, hidden-markov-model, volatility-clustering, macro-indicators, term-structure, a-share, factor-conditioning, risk-forecast, pandadata]
   platforms: [claude-code, codex, openclaw]
@@ -256,3 +256,7 @@ Build a strategy that adapts to detected regimes. See `examples/regime_switching
 | `references/conditional_analysis.md` | When evaluating factor performance or risk metrics per regime |
 | `references/risk_forecast.md` | When generating regime-aware covariance, VaR, or drawdown forecasts |
 | `examples/regime_switching_strategy.py` | When building a complete regime-dependent trading strategy with panda_backtest |
+
+## Pandadata compatibility
+
+[Pandadata 1.0.6 compatibility](references/pandadata-compatibility.md) — exact SDK baseline, validation scope, and shared guidance for all supported agent runtimes.
