@@ -121,3 +121,6 @@ skill-market-regime-analysis/
 ## License
 
 GPL-3.0 License. See [LICENSE](LICENSE).
+
+
+Pandadata compatibility maintenance: [abgyjaguo](https://github.com/abgyjaguo). Existing authorship is retained.

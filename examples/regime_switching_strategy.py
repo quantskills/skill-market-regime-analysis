@@ -12,10 +12,10 @@ Strategy logic:
 Data sources used:
 - get_index_daily: 沪深300指数日线
 - get_future_dominant: 主力合约映射
-- get_future_list: 合约乘数
+- get_future_detail: 合约乘数
 - get_stock_daily: A股行情
 
-This example requires panda_backtest >= 0.1.0 and panda_data >= 0.1.0.
+This example requires panda_backtest >= 0.1.0 and panda_data==1.0.6
 """
 
 from panda_backtest.api.api import *
@@ -79,7 +79,7 @@ def _preload_all_data(context):
             )
             if dom_df is not None and not dom_df.empty:
                 symbols = dom_df['symbol'].unique().tolist()
-                mul_df = panda_data.get_future_list(
+                mul_df = panda_data.get_future_detail(
                     symbol=symbols,
                     fields=['symbol', 'contract_multiplier']
                 )
@@ -117,7 +117,7 @@ def before_trading(context):
         symbols = list(context.today_dominant.values())
         if symbols:
             try:
-                mul_df = panda_data.get_future_list(
+                mul_df = panda_data.get_future_detail(
                     symbol=symbols,
                     fields=['symbol', 'contract_multiplier']
                 )
